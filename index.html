@@ -1,45 +1,298 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <h1>What games are on?</h1>
+    <!-- <div class="page-title">What games are on?</div> -->
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
+      var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ];
+
+      var items = [
+        {
+          kind: 'calendar#event',
+          etag: '"3285535568026000"',
+          id: '_6ssm4c1o61hm4chjcpj3ep1ncph3cpb46gs30oj6cdh30c9ncop40srbf5pn0rriehpisorfdk',
+          status: 'confirmed',
+          htmlLink:
+            'https://www.google.com/calendar/event?eid=XzZzc200YzFvNjFobTRjaGpjcGozZXAxbmNwaDNjcGI0NmdzMzBvajZjZGgzMGM5bmNvcDQwc3JiZjVwbjBycmllaHBpc29yZmRrIDJ0a2NybmFiaXJwbW9mNzVqcnAyM3EyZmlmcnFuM2MwQGk&ctz=Africa/Nairobi',
+          created: '2022-01-21T12:20:22.000Z',
+          updated: '2022-01-21T12:23:04.013Z',
+          summary: 'Burnley v Watford',
+          description: 'Burnley v Watford\nTurf Moor\nPremier League',
+          location: 'Turf Moor',
+          creator: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          organizer: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          start: {
+            dateTime: '2022-02-05T21:00:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          end: {
+            dateTime: '2022-02-05T23:00:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          transparency: 'transparent',
+          iCalUID: '79b080cb23ff7d7fb6ed480bfcb017f2@skysports.com',
+          sequence: 0,
+          eventType: 'default',
+        },
+        {
+          kind: 'calendar#event',
+          etag: '"3250377369358000"',
+          id: '_6kpm8p1m71j3ecr574p6cob474qjed1oc9ij6chl6thm4or6chh40srbf5pn0rriehpisorfdk',
+          status: 'confirmed',
+          htmlLink:
+            'https://www.google.com/calendar/event?eid=XzZrcG04cDFtNzFqM2VjcjU3NHA2Y29iNDc0cWplZDFvYzlpajZjaGw2dGhtNG9yNmNoaDQwc3JiZjVwbjBycmllaHBpc29yZmRrIDJ0a2NybmFiaXJwbW9mNzVqcnAyM3EyZmlmcnFuM2MwQGk&ctz=Africa/Nairobi',
+          created: '2021-07-02T02:10:59.000Z',
+          updated: '2021-07-02T01:18:04.679Z',
+          summary: 'West Ham United v Watford',
+          description:
+            'West Ham United v Watford\nLondon Stadium\nPremier League',
+          location: 'London Stadium',
+          creator: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          organizer: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          start: {
+            dateTime: '2022-02-08T22:45:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          end: {
+            dateTime: '2022-02-09T00:45:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          transparency: 'transparent',
+          iCalUID: '53dd68f73e92fad95748be3257cbcfdb@skysports.com',
+          sequence: 0,
+          eventType: 'default',
+        },
+        {
+          kind: 'calendar#event',
+          etag: '"3279155252314000"',
+          id: '_clijcchpcdhjee1k6lgjic1p6spj2p9j6him4cj6cop38cj46go40srbf5pn0rriehpisorfdk',
+          status: 'confirmed',
+          htmlLink:
+            'https://www.google.com/calendar/event?eid=X2NsaWpjY2hwY2RoamVlMWs2bGdqaWMxcDZzcGoycDlqNmhpbTRjajZjb3AzOGNqNDZnbzQwc3JiZjVwbjBycmllaHBpc29yZmRrIDJ0a2NybmFiaXJwbW9mNzVqcnAyM3EyZmlmcnFuM2MwQGk&ctz=Africa/Nairobi',
+          created: '2021-12-15T14:13:44.000Z',
+          updated: '2021-12-15T14:13:46.157Z',
+          summary: 'Newcastle United v Everton',
+          description:
+            "Newcastle United v Everton\nSt James' Park, Newcastle\nPremier League",
+          location: "St James' Park, Newcastle",
+          creator: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          organizer: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          start: {
+            dateTime: '2022-02-08T22:45:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          end: {
+            dateTime: '2022-02-09T00:45:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          transparency: 'transparent',
+          iCalUID: 'ee629cc7845a909731e34eb2ff242d40@skysports.com',
+          sequence: 0,
+          eventType: 'default',
+        },
+        {
+          kind: 'calendar#event',
+          etag: '"3279155252314000"',
+          id: '_68o38dhnc9hm2chi60s66e1lc4pm2p9n74ojip9n60rjgp9i60p40srbf5pn0rriehpisorfdk',
+          status: 'confirmed',
+          htmlLink:
+            'https://www.google.com/calendar/event?eid=XzY4bzM4ZGhuYzlobTJjaGk2MHM2NmUxbGM0cG0ycDluNzRvamlwOW42MHJqZ3A5aTYwcDQwc3JiZjVwbjBycmllaHBpc29yZmRrIDJ0a2NybmFiaXJwbW9mNzVqcnAyM3EyZmlmcnFuM2MwQGk&ctz=Africa/Nairobi',
+          created: '2021-12-15T14:13:44.000Z',
+          updated: '2021-12-15T14:13:46.157Z',
+          summary: 'Burnley v Wolverhampton Wanderers Football Club',
+          description: 'Burnley v Manchester United\nTurf Moor\nPremier League',
+          location: 'Turf Moor',
+          creator: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          organizer: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          start: {
+            dateTime: '2022-02-08T23:00:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          end: {
+            dateTime: '2022-02-09T01:00:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          transparency: 'transparent',
+          iCalUID: '20467bca2208c85a3ae7919e7078e202@skysports.com',
+          sequence: 0,
+          eventType: 'default',
+        },
+        {
+          kind: 'calendar#event',
+          etag: '"3279155252314000"',
+          id: '_6hi32db3c4o62c9j6thjcchl75imcp9i64s6ao9g74q36c3160rk0srbf5pn0rriehpisorfdk',
+          status: 'confirmed',
+          htmlLink:
+            'https://www.google.com/calendar/event?eid=XzZoaTMyZGIzYzRvNjJjOWo2dGhqY2NobDc1aW1jcDlpNjRzNmFvOWc3NHEzNmMzMTYwcmswc3JiZjVwbjBycmllaHBpc29yZmRrIDJ0a2NybmFiaXJwbW9mNzVqcnAyM3EyZmlmcnFuM2MwQGk&ctz=Africa/Nairobi',
+          created: '2021-12-15T14:13:44.000Z',
+          updated: '2021-12-15T14:13:46.157Z',
+          summary: 'Norwich City v Wolverhampton Wanderers Football Club',
+          description:
+            'Norwich City v Crystal Palace\nCarrow Road\nPremier League',
+          location: 'Carrow Road',
+          creator: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          organizer: {
+            email:
+              '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com',
+            displayName: 'Premier League fixtures',
+            self: true,
+          },
+          start: {
+            dateTime: '2022-02-09T22:45:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          end: {
+            dateTime: '2022-02-10T00:45:00+03:00',
+            timeZone: 'Europe/London',
+          },
+          transparency: 'transparent',
+          iCalUID: '4d15ca0a137c6259efe218ea09430a07@skysports.com',
+          sequence: 0,
+          eventType: 'default',
+        },
+      ];
+
       function printCalendar() {
-        var calendarId = '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com';
+        var calendarId =
+          '2tkcrnabirpmof75jrp23q2fifrqn3c0@import.calendar.google.com';
         var apiKey = 'AIzaSyBikCXU-ISuQQnTkXey20K_T1m4YgEePlg';
-        var userTimeZone = "Africa/Kampala";
-  
-        gapi.client.init({
-          'apiKey': apiKey,
-          'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
-        }).then(function () {
-          return gapi.client.calendar.events.list({
-            'calendarId': calendarId,
-            'timeZone': userTimeZone,
-            'singleEvents': true,
-            'timeMin': (new Date()).toISOString(), // gathers only events not happened yet
-            'maxResults': 20,
-            'orderBy': 'startTime'
-          });
-        }).then(function (response) {
-          if (response.result.items) {
-            var calendarRows = [];
+        var userTimeZone = 'Africa/Kampala';
 
-            response.result.items.forEach(function(entry) {
-              var startsAt = entry.start.dateTime
-              calendarRows.push('<div>' + startsAt + ' ' + entry.summary + '</div>')
+        gapi.client
+          .init({
+            apiKey: apiKey,
+            discoveryDocs: [
+              'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+            ],
+          })
+          .then(function () {
+            return gapi.client.calendar.events.list({
+              calendarId: calendarId,
+              timeZone: userTimeZone,
+              singleEvents: true,
+              timeMin: new Date().toISOString(), // gathers only events not happened yet
+              maxResults: 20,
+              orderBy: 'startTime',
             });
+          })
+          .then(
+            function (response) {
+              if (response.result.items) {
+                var calendarRows = [];
+                var previousEntryStart = null;
 
-            document.getElementById('calendar').innerHTML = calendarRows.join("");
-          }
-        }, function (reason) {
-          console.log('Error: ' + reason.result.error.message);
-        });
-      };
-  
+                response.result.items.forEach(function (entry) {
+                  var start = new Date(entry.start.dateTime);
+                  console.log('current:', entry.summary);
+                  if (
+                    !previousEntryStart ||
+                    start.getDate() !== previousEntryStart.getDate() ||
+                    start.getMonth() !== previousEntryStart.getMonth()
+                  ) {
+                    calendarRows.push(getDateRow(start));
+                  }
+
+                  var timeString = start.getHours() + ':';
+                  if (start.getMinutes() < 10) timeString += '0';
+                  timeString += start.getMinutes();
+
+                  calendarRows.push(
+                    '<div class="event-row">' +
+                      '<div class="time">' +
+                      timeString +
+                      '</div>' +
+                      entry.summary +
+                      '</div>'
+                  );
+
+                  previousEntryStart = start;
+                });
+
+                document.getElementById('calendar').innerHTML =
+                  calendarRows.join('');
+              }
+            },
+            function (reason) {
+              console.log('Error: ' + reason.result.error.message);
+            }
+          );
+      }
+
+      function getDateRow(date) {
+        return (
+          '<div class="date-row">' +
+          daysOfWeek[date.getDay()] +
+          ', ' +
+          date.getDate() +
+          ' ' +
+          months[date.getMonth()] +
+          '</div>'
+        );
+      }
+
       // Loads the JavaScript client library and invokes `start` afterwards.
       gapi.load('client', printCalendar);
     </script>
