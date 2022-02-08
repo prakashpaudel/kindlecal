@@ -64,7 +64,7 @@
       }
 
       function fetchAllCalendars() {
-        console.log('inside fetchAllCalendars');
+        // console.log('inside fetchAllCalendars');
 
         var calendars = [
           'nio5jnbpuknmmefriorvgf2vfk@group.calendar.google.com', // Public Leekash Calendar
@@ -94,7 +94,7 @@
 
       function printCalendar(events) {
         // console.log('inside printCalendar');
-        console.log('events', events);
+        // console.log('events', events);
 
         var calendarRows = [];
         var previousEntryStart = null;
@@ -169,6 +169,17 @@
           '</div>'
         );
       }
+
+      function scrollCalendar(e) {
+        if (e.clientX <= 360) {
+          document.getElementById('calendar').scrollTop -= 400;
+        }
+        if (e.clientX > 360) {
+          document.getElementById('calendar').scrollTop += 400;
+        }
+      }
+
+      document.addEventListener('click', scrollCalendar);
 
       // Loads the JavaScript client library and invokes `start` afterwards.
       gapi.load('client', fetchAllCalendars);

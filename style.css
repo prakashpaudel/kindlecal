@@ -1,19 +1,36 @@
 body {
-  width: 735px;
-  /* border: 1px solid; */
   font-family: Georgia, 'Times New Roman', Times, serif;
+
+  -webkit-transform: rotate(-90deg);
+  margin-left: -80px;
+  margin-top: 68px;
+
+  height: 735px;
+  width: 900px;
+}
+
+#calendar {
+  height: 735px;
+
+  overflow-y: visible;
+  overflow-x: hidden;
+}
+
+.date-row,
+.event-row {
+  font-size: 35px;
+}
+
+.date-row:not(:first-child) {
+  margin-top: 30px;
 }
 
 .date-row {
-  margin-top: 30px;
-  margin-left: 10px;
   font-weight: bold;
-  font-size: 35px;
   clear: left;
 }
 
 .event-row {
-  font-size: 35px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 30px;
