@@ -73,6 +73,7 @@
           '1m42kusuh0j4g6nkgoidldijfugv78u9@import.calendar.google.com', // Formula 1
           '6f6ouebjnvgaqb97uo8o3ahvkq92qqsd@import.calendar.google.com', // F2
           'pg157j7elg2p00u1lbjj4vrk9igftqeq@import.calendar.google.com', // F3
+          '0qsk3bmjv6p0pps8eslmrnfp8skaptms@import.calendar.google.com', // World cup
         ];
 
         calendars.forEach(function (calendar) {
@@ -171,16 +172,17 @@
         );
       }
 
-      function scrollCalendar(e) {
-        if (e.clientX <= 360) {
-          document.getElementById('calendar').scrollTop -= 400;
-        }
-        if (e.clientX > 360) {
-          document.getElementById('calendar').scrollTop += 400;
-        }
-      }
+      // // Current Kindle has ghost touches, so calendar always scrolls to bottom unintetionally.
+      // function scrollCalendar(e) {
+      //   if (e.clientX <= 360) {
+      //     document.getElementById('calendar').scrollTop -= 400;
+      //   }
+      //   if (e.clientX > 360) {
+      //     document.getElementById('calendar').scrollTop += 400;
+      //   }
+      // }
 
-      document.addEventListener('click', scrollCalendar);
+      // document.addEventListener('click', scrollCalendar);
 
       // Loads the JavaScript client library and invokes `start` afterwards.
       gapi.load('client', fetchAllCalendars);
